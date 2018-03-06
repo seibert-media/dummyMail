@@ -41,6 +41,7 @@ include helpers/make_version
 include helpers/make_gohelpers
 include helpers/make_dockerbuild
 include helpers/make_db
+include sendgrid.env
 
 ### MAIN STEPS ###
 
@@ -92,10 +93,10 @@ run: build
 dev:
 	@$(if $(TOOL),go run -ldflags ${KIT_VERSION} $(TOOLS_DIR)/$(TOOL)/*.go \
 	-logtostderr \
-	-v=4 -debug, \
+	-v=4 -debug -count=1 -apiKey=${SENDGRID_API_KEY}, \
 	$(if $(filter-out 1,$(SINGLE_TOOL)),, go run -ldflags ${KIT_VERSION} $(TOOLS_DIR)/$(strip $(SUBDIRS))/*.go \
 	-logtostderr \
-	-v=4 -debug))
+	-v=4 -debug -count=1 -apiKey=${SENDGRID_API_KEY}))
 
 # build the docker image
 docker: build-in-docker 

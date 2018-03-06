@@ -27,9 +27,27 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/corpix/uarand"
+  packages = ["."]
+  revision = "2b8494104d86337cdd41d0a49cbed8e4583c0ab4"
+
+[[projects]]
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
+  version = "v1.1.0"
+
+[[projects]]
+  branch = "master"
   name = "github.com/getsentry/raven-go"
   packages = ["."]
   revision = "563b81fc02b75d664e54da31f787c2cc2186780b"
+
+[[projects]]
+  name = "github.com/gobuffalo/envy"
+  packages = ["."]
+  revision = "15f5083a6e269f8698715b13dd25f0538754ab37"
+  version = "v1.4.1"
 
 [[projects]]
   branch = "master"
@@ -39,9 +57,33 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/icrowley/fake"
+  packages = ["."]
+  revision = "4178557ae428460c3780a381c824a1f3aceb6325"
+
+[[projects]]
+  name = "github.com/joho/godotenv"
+  packages = ["."]
+  revision = "a79fa1e548e2c689c241d10173efd51e5d689d5b"
+  version = "v1.2.0"
+
+[[projects]]
+  branch = "master"
   name = "github.com/kolide/kit"
   packages = ["version"]
   revision = "d4b803f4eea66a463259243f2e95bad5124b7310"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/markbates/inflect"
+  packages = ["."]
+  revision = "3e32b42850a9f09fac18a6c09bbd04325f51f732"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mitchellh/go-homedir"
+  packages = ["."]
+  revision = "b8bc1bf767474819792c23f32d8286a45736f1c6"
 
 [[projects]]
   name = "github.com/opentracing/opentracing-go"
@@ -64,6 +106,21 @@
   name = "github.com/playnet-public/libs"
   packages = ["log"]
   revision = "7f3f4978caff727207c8bcf3816d65920f28d17e"
+
+[[projects]]
+  name = "github.com/sendgrid/rest"
+  packages = ["."]
+  revision = "80b39aaf5a30edab5bf2f99d56052abe01a0d41d"
+  version = "v2.4.0"
+
+[[projects]]
+  name = "github.com/sendgrid/sendgrid-go"
+  packages = [
+    ".",
+    "helpers/mail"
+  ]
+  revision = "8caf17aa96b4a98bae8bd216878dd50ff12897b5"
+  version = "v3.4.1"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
@@ -91,6 +148,12 @@
   packages = ["metrics"]
   revision = "4267858c0679cd4e47cefed8d7f70fd386cfb567"
   version = "v1.4.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/wawandco/fako"
+  packages = ["."]
+  revision = "5c39c0b756fbfea2949718f8d057c5866dd7a0e1"
 
 [[projects]]
   name = "go.uber.org/atomic"
@@ -126,6 +189,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "aad6656992388a30602186896b43c97cdc6d4169de24377c699b71626c08215c"
+  inputs-digest = "88c0fcaffbd3915e1597cdc9d271333c73cfa627583ee1af11ba1a513d1d2fd9"
   solver-name = "gps-cdcl"
   solver-version = 1
