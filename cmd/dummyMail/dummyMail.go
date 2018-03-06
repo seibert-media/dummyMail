@@ -2,10 +2,7 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"os/signal"
 	"runtime"
-	"syscall"
 
 	"github.com/playnet-public/libs/log"
 
@@ -72,30 +69,19 @@ func main() {
 	}
 	errs := make(chan error)
 
-	// catch system interrupts
-	go func() {
-		c := make(chan os.Signal)
-		signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
-		errs <- fmt.Errorf("%s", <-c)
-	}()
-
-	// catch errors and throw fatal //TODO: is this good?
-	go func() {
-		ret := <-errs
-		if ret != nil {
-			log.Fatal(ret.Error())
-		}
-	}()
-
 	// run main code
 	log.Info("starting")
-	raven.CapturePanicAndWait(func() {
+	sentryErr, _ := raven.CapturePanicAndWait(func() {
 		if err := do(log); err != nil {
 			log.Fatal("fatal error encountered", zap.Error(err))
 			raven.CaptureErrorAndWait(err, map[string]string{"isFinal": "true"})
 			errs <- err
 		}
 	}, nil)
+	if sentryErr != nil {
+		err := sentryErr.(error)
+		log.Error("panic", zap.Error(err))
+	}
 	log.Info("finished")
 }
 
