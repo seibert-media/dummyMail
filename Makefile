@@ -15,7 +15,7 @@ NAME         := dummyMail
 REPO         := seibert-media
 GIT_HOST     := github.com
 REGISTRY     := quay.io
-IMAGE        := seibertmedia/$(NAME)
+IMAGE        := `echo seibertmedia/$(NAME) | tr A-Z a-z`
 
 PATH := $(GOPATH)/bin:$(PATH)
 TOOLS_DIR := cmd
@@ -93,10 +93,10 @@ run: build
 dev:
 	@$(if $(TOOL),go run -ldflags ${KIT_VERSION} $(TOOLS_DIR)/$(TOOL)/*.go \
 	-logtostderr \
-	-v=4 -debug -count=1 -apiKey=${SENDGRID_API_KEY}, \
+	-v=4 -debug -count=${EMAIL_COUNT} -apiKey=${SENDGRID_API_KEY} -senderSuffix=${SENDGRID_SENDER} -recipient=${RECIPIENT}, \
 	$(if $(filter-out 1,$(SINGLE_TOOL)),, go run -ldflags ${KIT_VERSION} $(TOOLS_DIR)/$(strip $(SUBDIRS))/*.go \
 	-logtostderr \
-	-v=4 -debug -count=1 -apiKey=${SENDGRID_API_KEY}))
+	-v=4 -debug -count=${EMAIL_COUNT} -apiKey=${SENDGRID_API_KEY} -senderSuffix=${SENDGRID_SENDER} -recipient=${RECIPIENT}))
 
 # build the docker image
 docker: build-in-docker 
