@@ -6,7 +6,7 @@ import (
 	"runtime"
 
 	"github.com/playnet-public/libs/log"
-	"github.com/seibert-media/dummyMail/pkg/mail"
+	"github.com/seibert-media/dummy_mail/pkg/mail"
 
 	raven "github.com/getsentry/raven-go"
 	"github.com/golang/glog"
@@ -16,8 +16,8 @@ import (
 )
 
 const (
-	app    = "dummyMail"
-	appKey = "dummyMail"
+	app    = "dummy_mail"
+	appKey = "dummy_mail"
 )
 
 var (

@@ -3,7 +3,7 @@ language: go
 go:
   - 1.9.x
 
-go_import_path: github.com/seibert-media/dummyMail
+go_import_path: github.com/seibert-media/dummy_mail
 
 env:
   global:

@@ -1,8 +1,8 @@
-# dummyMail
-[![Go Report Card](https://goreportcard.com/badge/github.com/seibert-media/dummyMail)](https://goreportcard.com/report/github.com/seibert-media/dummyMail)
+# dummy_mail
+[![Go Report Card](https://goreportcard.com/badge/github.com/seibert-media/dummy_mail)](https://goreportcard.com/report/github.com/seibert-media/dummy_mail)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build Status](https://travis-ci.org/seibert-media/dummyMail.svg?branch=master)](https://travis-ci.org/seibert-media/dummyMail)
-[![Docker Repository on Quay](https://quay.io/repository/seibertmedia/dummyMail/status "Docker Repository on Quay")](https://quay.io/repository/seibertmedia/dummyMail)
+[![Build Status](https://travis-ci.org/seibert-media/dummy_mail.svg?branch=master)](https://travis-ci.org/seibert-media/dummy_mail)
+[![Docker Repository on Quay](https://quay.io/repository/seibertmedia/dummy_mail/status "Docker Repository on Quay")](https://quay.io/repository/seibertmedia/dummy_mail)
 
 A small tool to generate dummy mail for migration and demo purposes and send those via sendgrid or smtp
 
@@ -18,7 +18,7 @@ Install all further requirements by running `make deps`
 ## Usage
 
 ```
-dummyMail
+dummy_mail
 ```
 
 ## Development

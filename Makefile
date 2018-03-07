@@ -11,11 +11,11 @@
 # Parts of this makefile are based upon github.com/kolide/kit
 #
 
-NAME         := dummyMail
+NAME         := dummy_mail
 REPO         := seibert-media
 GIT_HOST     := github.com
 REGISTRY     := quay.io
-IMAGE        := `echo seibertmedia/$(NAME) | tr A-Z a-z`
+IMAGE        := seibertmedia/$(NAME)
 
 PATH := $(GOPATH)/bin:$(PATH)
 TOOLS_DIR := cmd
@@ -131,4 +131,4 @@ build-docker-bin:
 update-deployment: docker upload clean restart-deployment
 
 restart-deployment:
-	kubectl delete po -n bot -lapp=dummyMail
+	kubectl delete po -n bot -lapp=dummy_mail
