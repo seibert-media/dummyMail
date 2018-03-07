@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/seibert-media/dummyMail.svg?branch=master)](https://travis-ci.org/seibert-media/dummyMail)
 [![Docker Repository on Quay](https://quay.io/repository/seibertmedia/dummyMail/status "Docker Repository on Quay")](https://quay.io/repository/seibertmedia/dummyMail)
 
-A bot for making discord server democratic.
+A small tool to generate dummy mail for migration and demo purposes and send those via sendgrid or smtp
 
 ## Description
 
