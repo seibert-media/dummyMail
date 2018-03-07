@@ -36,12 +36,12 @@ $(if $(findstring full,$(MAKECMDGOALS)), $(eval SINGLE_TOOL=2),)
 TARGETS ?= default
 
 -include .env
+-include sendgrid.env
 
 include helpers/make_version
 include helpers/make_gohelpers
 include helpers/make_dockerbuild
 include helpers/make_db
-include sendgrid.env
 
 ### MAIN STEPS ###
 
