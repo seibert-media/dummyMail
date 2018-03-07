@@ -8,12 +8,6 @@
   version = "0.10.0"
 
 [[projects]]
-  branch = "master"
-  name = "github.com/bborbe/flagenv"
-  packages = ["."]
-  revision = "4bf10dbe62f41ce40353a70225a84decfd16d3ac"
-
-[[projects]]
   name = "github.com/certifi/gocertifi"
   packages = ["."]
   revision = "deb3ae2ef2610fde3330947281941c562861188b"
@@ -30,12 +24,6 @@
   name = "github.com/corpix/uarand"
   packages = ["."]
   revision = "2b8494104d86337cdd41d0a49cbed8e4583c0ab4"
-
-[[projects]]
-  name = "github.com/davecgh/go-spew"
-  packages = ["spew"]
-  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
-  version = "v1.1.0"
 
 [[projects]]
   branch = "master"
@@ -71,7 +59,7 @@
   branch = "master"
   name = "github.com/kolide/kit"
   packages = ["version"]
-  revision = "d4b803f4eea66a463259243f2e95bad5124b7310"
+  revision = "0a627333a265b0da482aa054b7e83f674bf87da9"
 
 [[projects]]
   branch = "master"
@@ -189,6 +177,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "88c0fcaffbd3915e1597cdc9d271333c73cfa627583ee1af11ba1a513d1d2fd9"
+  inputs-digest = "74c8480154a326b2d4ea875988043fd80075f5d182b284ab605e8c1655a3c117"
   solver-name = "gps-cdcl"
   solver-version = 1
