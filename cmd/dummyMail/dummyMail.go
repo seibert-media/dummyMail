@@ -1,12 +1,12 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"runtime"
 
 	"github.com/playnet-public/libs/log"
-
-	flag "github.com/bborbe/flagenv"
+	"github.com/seibert-media/dummyMail/pkg/mail"
 
 	raven "github.com/getsentry/raven-go"
 	"github.com/golang/glog"
@@ -22,14 +22,21 @@ const (
 
 var (
 	maxprocsPtr = flag.Int("maxprocs", runtime.NumCPU(), "max go procs")
-	sentryDsn   = flag.String("sentrydsn", "", "sentry dsn key")
+	sentryDsn   = flag.String("sentrydsn", "https://0484bfd72e85493296b64d4010a9c645:9d7b35795e36450d8b876f45b173aa07@sentry.io/299868", "sentry dsn key")
 	dbgPtr      = flag.Bool("debug", false, "debug printing")
 	versionPtr  = flag.Bool("version", true, "show or hide version info")
+
+	apiKey       = flag.String("apiKey", "", "sendgrid api key")
+	senderSuffix = flag.String("senderSuffix", "", "the domain from which e-mails are sent")
+	countPtr     = flag.Int("count", 0, "count of e-mails generated")
+
+	recipients mail.Recipients
 
 	sentry *raven.Client
 )
 
 func main() {
+	flag.Var(&recipients, "recipient", "recipient to send e-mail to")
 	flag.Parse()
 
 	if *versionPtr {
@@ -86,5 +93,11 @@ func main() {
 }
 
 func do(log *log.Logger) error {
+	sender := mail.Init(log, *apiKey, *senderSuffix, recipients.Array())
+	for i := 0; i < *countPtr; i++ {
+		mail := mail.Generate()
+		log.Info("sending mail", zap.String("recipient", mail.RecipientEmail), zap.String("subject", mail.Subject))
+		sender.Send(mail)
+	}
 	return nil
 }
